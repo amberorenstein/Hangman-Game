@@ -10,6 +10,9 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+	<!-- Additional CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
 
@@ -17,11 +20,16 @@
 	
 	<div class="jumbotron">
 		<h1>Hangman Game</h1>
-		<p>Colorado Fun Facts!</p>
+		<h2>Colorado Breweries</h2>
+		<p>Learning Javascript? You deserve a beer.</p> 
 	</div> 
 
 
-	<div class="panel panel-default">
+
+
+<div class="row">
+	<div class="col-md-12">
+	<div class="panel panel-default" id=current-word>
 	  <div class="panel-heading">
 	    <h3 class="panel-title">Current Word</h3>
 	  </div>
@@ -29,33 +37,43 @@
 	    <h2 id ="currentWord">_ _ _ _ _ _ _ </h2>
 	  </div>
 	</div>
+	</div>
+</div>
 
+<div class="row">
 
+	<div class="col-md-3">
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	    <strong>Wrong Guesses: </strong><span id ="wrongGuesses"></span>
 	  </div>
 	</div>
+	</div>
 
+	<div class="col-md-3">
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	    <strong>Guesses Left: </strong><span id ="numGuesses"></span>
 	  </div>
 	</div>
+	</div>
 
+	<div class="col-md-3">
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	    <strong>Wins: </strong><span id ="winCounter"></span>
 	  </div>
 	</div>
+	</div>
 
-
+	<div class="col-md-3">
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	    <strong>Losses: </strong><span id ="lossCounter"></span>
 	  </div>
 	</div>
-
+	</div>
+</div>
 
 
 </div>

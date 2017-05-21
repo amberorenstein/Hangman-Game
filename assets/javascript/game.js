@@ -1,7 +1,7 @@
 //VARIABLES
 //------------------------------------------------------
 //Arrays and Variables for holding data
-var wordOptions = ["longs", "grays", "torreys", "fourteener", "evans", "quandary", "brass", "rockies", "denver", "vail", "breckenridge", "ski", "mountain", "hiking", "adventure", "outdoors", "microbrew"];
+var wordOptions = ["avery", "boulder", "breckenridge", "revolution", "paradox", "cerebral", "odell", "wynkoop", "walnut", "coors", "greatdivide", "lefthand", "newbelgium", "bristol", "dillon dam", "tommyknocker", "dry dock"];
 var selectedWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
@@ -12,6 +12,8 @@ var wrongLetters = [];
 var winCount = 0;
 var lossCount = 0;
 var guessesLeft = 9;
+var wrongLetters =" ";
+
 
 //FUNCTIONS
 //------------------------------------------------------
@@ -22,20 +24,23 @@ numBlanks = lettersInWord.length;
 
 //Resets
 guessesLeft = 9;
-wrongLetters = [ ];
+wrongLetters = [];
 blanksAndSuccesses = [ ];
+
+
 
 //Populate banks and successes with the correct number of spaces
 for (var i = 0; i < numBlanks; i++){
 	blanksAndSuccesses.push("_");
 	}
 
+
 //Change HTML to reflect game consitions
 document.getElementById("currentWord").innerHTML = blanksAndSuccesses.join(" ");
 document.getElementById("numGuesses").innerHTML = guessesLeft;
 document.getElementById("winCounter").innerHTML = winCount;
 document.getElementById("lossCounter").innerHTML = lossCount;
-//Test
+//Tests
 console.log(selectedWord);
 console.log(lettersInWord);
 console.log(numBlanks);	
@@ -65,7 +70,7 @@ function checkLetters(letter) {
 	//Letter is not in the word
 	else{
 		wrongLetters.push(letter);
-		guessesLeft--
+		guessesLeft--;
 	}
 
 	//Test
@@ -81,17 +86,15 @@ function roundComplete(){
 	//Check for win
 	if (lettersInWord.toString() == blanksAndSuccesses.toString()) {
 		winCount++;
-		alert("You Win!");
-
+		alert("You Win! The selected brewery was " + selectedWord + ". Cheers!");
 		document.getElementById("winCounter").innerHTML = winCount;
-
 		startGame();
 	}
 
 	//Check for loss
 	else if (guessesLeft == 0){
 		lossCount++;
-		alert("You lose");
+		alert("You lose. The selected brewery was " + selectedWord + ". You should grab a beer.");
 
 		document.getElementById("lossCounter").innerHTML = lossCount;
 
@@ -99,8 +102,6 @@ function roundComplete(){
 	}
 }
 
-//MAIN PROCESSES/CALL FUNCTIONS
-//------------------------------------------------------
 //Starts game and resets code
 startGame();
 
