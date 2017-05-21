@@ -11,8 +11,14 @@ body{
 	background-size: cover;
 }
 
+#stickFigure {
+	border:5px solid #474350;
+
+}
+
 #current-word {
 	text-align: center;
+	height: 210px;
 }
 
 .panel-title {
