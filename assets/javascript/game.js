@@ -1,7 +1,7 @@
 //VARIABLES
 //------------------------------------------------------
 //Arrays and Variables for holding data
-var wordOptions = ["avery", "boulder", "breckenridge", "revolution", "paradox", "cerebral", "odell", "wynkoop", "walnut", "coors", "greatdivide", "lefthand", "newbelgium", "bristol", "dillon dam", "tommyknocker", "dry dock"];
+var wordOptions = ["avery", "boulder", "breckenridge", "revolution", "paradox", "cerebral", "odell", "wynkoop", "walnut", "coors", "great divide", "left hand", "new belgium", "bristol", "dillon dam", "tommyknocker", "dry dock"];
 var selectedWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
@@ -89,18 +89,15 @@ var animate = function () {
 
 
 
-
 function startGame(){
 selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
 lettersInWord = selectedWord.split("");
 numBlanks = lettersInWord.length;
 canvas();
 context.clearRect(0, 0, 400, 400);
-
-//Resets
 guessesLeft = 9;
 wrongLetters = [];
-blanksAndSuccesses = [ ];
+blanksAndSuccesses = [];
 
 
 
@@ -160,10 +157,12 @@ function roundComplete(){
 	document.getElementById("numGuesses").innerHTML = guessesLeft;
 	document.getElementById("currentWord").innerHTML = blanksAndSuccesses.join(" ");
 	document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
-	//Check for win
+	
+  //Check for win
 	if (lettersInWord.toString() == blanksAndSuccesses.toString()) {
 		winCount++;
-		alert("You Win! The selected brewery was " + selectedWord + ". Cheers!");
+    wrongGuesses=[];
+		alert("You Win! The selected brewery was " + (selectedWord.toUpperCase()) + ". Cheers!");
 		document.getElementById("winCounter").innerHTML = winCount;
 		startGame();
 	}
@@ -171,10 +170,9 @@ function roundComplete(){
 	//Check for loss
 	else if (guessesLeft == 0){
 		lossCount++;
-		alert("You lose. The selected brewery was " + selectedWord + ". You should grab a beer.");
-
+		wrongGuesses=[];
+    alert("You lose. The selected brewery was " + (selectedWord.toUpperCase()) + ". You should grab a beer.");
 		document.getElementById("lossCounter").innerHTML = lossCount;
-
 		startGame();
 	}
 }
